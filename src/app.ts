@@ -37,3 +37,16 @@ let isValid: boolean = true;
   // можно получить строковое значение по номеру
   console.log(AnotherSeason[42]); // Summer
 })();
+
+
+// Тип any
+(() => {
+  let someVar: any = '42';
+  console.log(someVar);
+  someVar = 42; // ошибки нет, теперь в переменную записано число
+  console.log(someVar);
+
+  // массив any
+  const someArray: any[] = [42, 'TypeScript', { a: 1 }];
+  console.log(someArray);
+})();
