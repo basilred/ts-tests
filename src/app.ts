@@ -50,3 +50,13 @@ let isValid: boolean = true;
   const someArray: any[] = [42, 'TypeScript', { a: 1 }];
   console.log(someArray);
 })();
+
+
+// Объединения
+(() => {
+  let id: number | string;
+  id = '1234ddg5';
+  console.log(id);
+  id = 123;
+  console.log(id);
+})();
