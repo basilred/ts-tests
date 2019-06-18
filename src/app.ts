@@ -1,4 +1,6 @@
-const el = this.document.getElementById('content');
+import funcs from './funcs';
+
+const el = window.document.getElementById('content');
 
 class User {
   name: string;
@@ -106,3 +108,5 @@ let isValid: boolean = true;
   strLength = (anotherAnyValue as string).length;
   console.log(strLength);
 })();
+
+funcs();
