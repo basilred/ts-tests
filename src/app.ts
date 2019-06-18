@@ -88,3 +88,21 @@ let isValid: boolean = true;
     console.log(sum / 6);
   }
 })();
+
+
+// Type assertion
+(() => {
+  // First way
+  let someAnyValue: any = 'Hello, world!';
+  let strLength: number = (<string>someAnyValue).length;
+  console.log(strLength); // 13
+
+  let someUnionValue: string | number = "hello work";
+  strLength = (<string>someUnionValue).length;
+  console.log(strLength); // 10
+
+  // Second way with as operator
+  let anotherAnyValue: any = 'Hello, world!';
+  strLength = (anotherAnyValue as string).length;
+  console.log(strLength);
+})();
