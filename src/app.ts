@@ -78,3 +78,13 @@ let isValid: boolean = true;
     console.log('invalid operation');
   }
 })();
+
+
+// Псевдонимы типов
+(() => {
+  type stringOrNumberType = string | number;
+  let sum: stringOrNumberType = 36.6;
+  if (typeof sum === 'number') {
+    console.log(sum / 6);
+  }
+})();
