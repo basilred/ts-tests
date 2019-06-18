@@ -60,3 +60,21 @@ let isValid: boolean = true;
   id = 123;
   console.log(id);
 })();
+
+
+// Проверка типа
+(() => {
+  let sum: any;
+  sum = 1200;
+  sum = 'one thousand and two hundred';
+  let result: number = sum / 12;
+  console.log(result); // NaN, строку на число делить нельзя
+
+  // Используем проверку типов
+  if (typeof sum === 'number') {
+    result = sum / 12;
+    console.log(result);
+  } else {
+    console.log('invalid operation');
+  }
+})();
