@@ -21,4 +21,15 @@ export default function() {
   let name2 = getName('Vasya');
   console.log(name2);
   // let name2 = getName("Иван", "Михайлович", "Кузнецов");  //ошибка, много параметров
+
+  // параметры по умолчанию
+  function defaultSurname(): string {
+    return 'Smith';
+  }
+
+  function getName2(firstName: string, lastName: string = defaultSurname()) {
+    return `${firstName} ${lastName}`;
+  }
+
+  console.log(getName2('Vasya'));
 }
