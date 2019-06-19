@@ -32,4 +32,20 @@ export default function() {
   }
 
   console.log(getName2('Vasya'));
+
+
+  // Неопределенный набор параметров
+  function addNumbers(firstNumber: number, ...numberArray: number[]): number {
+
+    let result = firstNumber;
+
+    for (let i = 0; i < numberArray.length; i += 1) {
+      result += numberArray[i];
+    }
+
+    return result;
+  }
+
+  console.log(`Add numbers 3, 7, 8: ${addNumbers(3, 7, 8)}`); // 18
+  console.log(`Add numbers 3, 7, 8, 9, 4: ${addNumbers(3, 7, 8, 9, 4)}`); // 31
 }
