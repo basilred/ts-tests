@@ -85,4 +85,14 @@ export default function() {
     return a * b;
   };
   console.log( mathOp(6, 3, operationFunc) ); // 18
+
+
+  // Стрелочные функции
+  function arrowMathOp(x: number, y: number, operation: (a: number, b: number) => number): number {
+    return operation(x, y);
+  }
+
+  // Используем стрелочные функции вместо предварительного объявления функций
+  console.log(arrowMathOp(2, 3, (x, y) => x + y)); // 5
+  console.log(arrowMathOp(2, 3, (x, y) => x ** y)); // 8
 }
