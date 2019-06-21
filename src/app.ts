@@ -1,5 +1,6 @@
 import types from './types';
 import funcs from './funcs';
+import oop from './oop';
 
 const el = window.document.getElementById('content');
 
@@ -28,3 +29,5 @@ let isValid: boolean = true;
 types();
 
 funcs();
+
+oop();
