@@ -66,4 +66,23 @@ export default function() {
 
   op = subtract;
   console.log(subtract(6, 4)); // 2
+
+
+  // Функции обратного вызова
+  function mathOp(x: number, y: number, operation: (a: number, b: number) => number): number {
+    const result = operation(x, y);
+
+    return result;
+  }
+
+  let operationFunc: (a: number, b: number) => number;
+  operationFunc = function (a: number, b: number): number {
+    return a + b;
+  };
+  console.log( mathOp(6, 3, operationFunc) ); // 9
+
+  operationFunc = function (a: number, b: number): number {
+    return a * b;
+  };
+  console.log( mathOp(6, 3, operationFunc) ); // 18
 }
