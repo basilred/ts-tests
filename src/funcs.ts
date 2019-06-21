@@ -48,4 +48,22 @@ export default function() {
 
   console.log(`Add numbers 3, 7, 8: ${addNumbers(3, 7, 8)}`); // 18
   console.log(`Add numbers 3, 7, 8, 9, 4: ${addNumbers(3, 7, 8, 9, 4)}`); // 31
+
+
+  // Тип Функции
+  function sum(x: number, y: number): number {
+    return x + y;
+  }
+
+  function subtract(x: number, y: number): number {
+    return x - y;
+  }
+
+  let op: (x: number, y: number) => number;
+
+  op = sum;
+  console.log(op(2, 4)); // 6
+
+  op = subtract;
+  console.log(subtract(6, 4)); // 2
 }
