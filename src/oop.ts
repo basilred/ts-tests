@@ -35,4 +35,13 @@ export default function() {
   const result = Operation.getSquare(r);
   console.log(`Площадь круга с радиусом ${r} равна ${result}`);
   console.log(Operation.PI * r ** 2);
+
+
+  // Модификаторы доступа
+  (() => {
+    class User {
+      public name: string; // То же самое, что и просто name: string;
+      public year: number;
+    }
+  })();
 };
