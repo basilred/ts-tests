@@ -22,4 +22,17 @@ export default function() {
 
   const alice: User = new User(2, 'Alice');
   console.log(alice.getInfo());
+
+  // Статические свойства функции
+  class Operation {
+    static PI = 3.14;
+    static getSquare(radius: number): number {
+      return Operation.PI * (radius ** 2);
+    }
+  }
+
+  const r = 30;
+  const result = Operation.getSquare(r);
+  console.log(`Площадь круга с радиусом ${r} равна ${result}`);
+  console.log(Operation.PI * r ** 2);
 };
