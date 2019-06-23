@@ -66,6 +66,7 @@ export default function() {
     tom.displayYear();
   })();
 
+
   // Модификатор protected
   (() => {
     class User {
@@ -94,6 +95,36 @@ export default function() {
         console.log(`Age: ${this.age}`);
         // console.log(`Name: ${this.name}`); // не работает, так как name - private
       }
+    }
+  })();
+
+
+  // Определение свойств через конструктор
+  (() => {
+    class User {
+      private _name: string;
+      private _age: number;
+
+      constructor(name: string, age: number) {
+        this._name = name;
+        this._age = age;
+      }
+
+      public getInfo() {
+        console.log(`name: ${this._name}; age: ${this._age}`);
+      }
+    }
+    // Аналогичен такому
+    class User2 {
+      constructor(private name: string, private age: number) {}
+
+      public getInfo() {
+        console.log(`name: ${this.name}; age: ${this.age}`);
+      }
+    }
+    // И с публичными свойствами тоже
+    class User3 {
+      constructor(public name: string, public age: number) {}
     }
   })();
 };
