@@ -40,8 +40,29 @@ export default function() {
   // Модификаторы доступа
   (() => {
     class User {
-      public name: string; // То же самое, что и просто name: string;
-      public year: number;
+      private _name: string;
+      private _year: number;
+
+      constructor(name: string, age: number) {
+        this._name = name;
+        this._year = this.setYear(age);
+      }
+
+      public displayYear(): void {
+        console.log(`Год рождения: ${this._year}`);
+      }
+
+      public displayName(): void {
+        console.log(`Имя: ${this._name}`);
+      }
+
+      private setYear(age: number): number {
+        return new Date().getFullYear() - age;
+      }
     }
+
+    const tom = new User('Tom', 38);
+    tom.displayName();
+    tom.displayYear();
   })();
 };
