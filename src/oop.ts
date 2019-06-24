@@ -127,4 +127,24 @@ export default function() {
       constructor(public name: string, public age: number) {}
     }
   })();
+
+
+  // Методы доступа
+  (() => {
+    class User {
+      private _name: string;
+
+      public get name() {
+        return this._name;
+      }
+
+      public set name(newName: string) {
+        this._name = newName;
+      }
+    };
+
+    const tom = new User();
+    tom.name = 'Tom'; // срабатывает set-метод
+    console.log(tom.name); // сработает get-метод
+  })();
 };
