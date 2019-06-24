@@ -202,5 +202,38 @@ export default function() {
         }
       }
     })();
+
+    // Переопределение методов
+    ((sectionName: string) => {
+      console.log(`\n${sectionName}`);
+
+      class User {
+        name: string;
+        constructor(userName: string) {
+          this.name = userName;
+        }
+
+        getInfo(): void {
+          console.log(`Name: ${this.name}`);
+        }
+      }
+
+      class Employee extends User {
+        company: string;
+
+        constructor(userName: string, empCompany: string) {
+          super(userName);
+          this.company = empCompany;
+        }
+
+        getInfo(): void {
+          super.getInfo();
+          console.log(`Works at the ${this.company} company`);
+        }
+      }
+
+      const bill: Employee = new Employee('Bill', 'Microsoft');
+      bill.getInfo();
+    })('Переопределение методов');
   })();
 };
