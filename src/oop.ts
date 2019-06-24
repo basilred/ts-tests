@@ -146,5 +146,14 @@ export default function() {
     const tom = new User();
     tom.name = 'Tom'; // срабатывает set-метод
     console.log(tom.name); // сработает get-метод
+
+    // Свойства только для чтения
+    class User2 {
+      constructor(readonly id: number, public name: string) {}
+    }
+
+    const alice: User2 = new User2(1, 'Alice');
+    console.log(alice.id, alice.name);
+    // alice.id = 34;  // Ошибка - так как id - только для чтения
   })();
 };
