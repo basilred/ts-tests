@@ -156,4 +156,31 @@ export default function() {
     console.log(alice.id, alice.name);
     // alice.id = 34;  // Ошибка - так как id - только для чтения
   })();
+
+
+  // Наследование. Абстрактные классы
+  (() => {
+    class User {
+      name: string;
+      constructor(userName: string) {
+        this.name = userName;
+      }
+
+      getInfo(): void {
+        console.log(`Name: ${this.name}`);
+      }
+    }
+
+    class Employee extends User {
+      company: string;
+      work(): void {
+        console.log(`${this.name} works at the ${this.company} company`);
+      }
+    }
+
+    const bill: Employee = new Employee('Bill');
+    bill.getInfo();
+    bill.company = 'Microsoft';
+    bill.work();
+  })();
 };
