@@ -267,11 +267,13 @@ export default function() {
       interface IUser {
         id: number;
         name: string;
+        age?: number;
       }
 
       const tom: IUser = {
         id: 1,
         name: 'Tom',
+        age: 23,
       };
 
       function getEmployeeInfo(user: IUser) {
@@ -289,6 +291,15 @@ export default function() {
 
       const alice = buildUser(2, 'Alice');
       getEmployeeInfo(alice);
+
+      interface Point {
+        readonly x: number;
+        readonly y: number;
+      }
+
+      const p: Point = { x: 20, y: 30 };
+      console.log(p);
+      // p.x = 5; // Ошибка - свойство доступно только для чтения
 
     })('Интерфейсы объектов');
   })();
