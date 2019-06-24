@@ -173,14 +173,34 @@ export default function() {
 
     class Employee extends User {
       company: string;
+
+      constructor(userName: string, empCompany: string) {
+        super(userName);
+        this.company = empCompany;
+      }
+
       work(): void {
         console.log(`${this.name} works at the ${this.company} company`);
       }
     }
 
-    const bill: Employee = new Employee('Bill');
-    bill.getInfo();
-    bill.company = 'Microsoft';
+    const bill: Employee = new Employee('Bill', 'Microsoft');
     bill.work();
+
+    // Вызов super() необходимо делать, даже если у базового класса
+    // отсутствует конструктор
+    (() => {
+      class User {
+        name: string;
+      }
+
+      class Employee extends User {
+        company: string;
+        constructor(empCompany: string) {
+          super();    // вызов конструктора базового класса
+          this.company = empCompany;
+        }
+      }
+    })();
   })();
 };
