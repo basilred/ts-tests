@@ -235,5 +235,27 @@ export default function() {
       const bill: Employee = new Employee('Bill', 'Microsoft');
       bill.getInfo();
     })('Переопределение методов');
+
+    // Абстрактные классы
+    ((sectionName: string) => {
+      console.log(`\n${sectionName}`);
+
+      abstract class Figure {
+        abstract getArea(): void;
+      }
+
+      class Rectangle extends Figure {
+        constructor(public width: number, public height: number) {
+          super();
+        }
+
+        getArea(): number {
+          return this.width * this.height;
+        }
+      }
+
+      const rect = new Rectangle(2, 3);
+      console.log(`Square: ${rect.getArea()}`);
+    })('Абстрактные классы');
   })();
 };
