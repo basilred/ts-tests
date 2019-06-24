@@ -236,6 +236,7 @@ export default function() {
       bill.getInfo();
     })('Переопределение методов');
 
+
     // Абстрактные классы
     ((sectionName: string) => {
       console.log(`\n${sectionName}`);
@@ -257,5 +258,38 @@ export default function() {
       const rect = new Rectangle(2, 3);
       console.log(`Square: ${rect.getArea()}`);
     })('Абстрактные классы');
+
+
+    // Интерфейсы объектов
+    ((sectionName: string) => {
+      console.log(`\n${sectionName}`);
+
+      interface IUser {
+        id: number;
+        name: string;
+      }
+
+      const tom: IUser = {
+        id: 1,
+        name: 'Tom',
+      };
+
+      function getEmployeeInfo(user: IUser) {
+        console.log(user);
+      }
+
+      function buildUser(userId: number, userName: string): IUser {
+        return {
+          id: userId,
+          name: userName,
+        };
+      }
+
+      getEmployeeInfo(tom);
+
+      const alice = buildUser(2, 'Alice');
+      getEmployeeInfo(alice);
+
+    })('Интерфейсы объектов');
   })();
 };
