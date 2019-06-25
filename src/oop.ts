@@ -302,5 +302,28 @@ export default function() {
       // p.x = 5; // Ошибка - свойство доступно только для чтения
 
     })('Интерфейсы объектов');
+
+
+    // Определение методов
+    ((sectionName: string) => {
+      console.log(`\n${sectionName}`);
+
+      interface IUser {
+        id: number;
+        name: string;
+        getFullName(surname: string): string;
+      }
+
+      const employee: IUser = {
+        id: 1,
+        name: 'Alice',
+        getFullName(surname: string): string {
+          return `${this.name} ${surname}`;
+        }
+      };
+
+      const fullName = employee.getFullName('Thompson');
+      console.log(fullName);
+    })('Определение методов');
   })();
 };
