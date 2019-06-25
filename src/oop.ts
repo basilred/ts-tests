@@ -440,5 +440,35 @@ export default function() {
 
     })('Интерфейсы массивов');
 
+
+    // Гибридные интерфейсы
+    ((sectionName: string) => {
+      console.log(`\n${sectionName}`);
+
+      interface PersonInfo {
+        (name: string, surname: string): void;
+        fullName: string;
+        password: string;
+        authenticate(): void;
+      }
+
+      function personBuilder(): PersonInfo {
+        const person = <PersonInfo>function(name: string, surname: string): void {
+          person.fullName = `${name} ${surname}`;
+        };
+        person.authenticate = function() {
+          console.log(`${person.fullName} entering the system with ${person.password} password`);
+        };
+
+        return person;
+      }
+
+      const jon = personBuilder();
+      jon('Jon', 'Snow');
+      jon.password = 'iknownothing';
+      jon.authenticate();
+
+    })('Гибридные интерфейсы');
+
   })('Интерфейсы');
 };
