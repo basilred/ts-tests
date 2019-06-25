@@ -258,7 +258,12 @@ export default function() {
       const rect = new Rectangle(2, 3);
       console.log(`Square: ${rect.getArea()}`);
     })('Абстрактные классы');
+  })();
 
+
+  // Интерфейсы
+  ((sectionName: string) => {
+    console.log(`\n${sectionName}`);
 
     // Интерфейсы объектов
     ((sectionName: string) => {
@@ -325,5 +330,38 @@ export default function() {
       const fullName = employee.getFullName('Thompson');
       console.log(fullName);
     })('Определение методов');
-  })();
+
+
+    // Определение методов
+    ((sectionName: string) => {
+      console.log(`\n${sectionName}`);
+
+      interface IUser {
+        id: number;
+        name: string;
+        getFullName(surname: string): string;
+      }
+
+      class User implements IUser {
+        id: number;
+        name: string;
+        age: number;
+
+        constructor(userId: number, userName: string, userAge: number) {
+          this.id = userId;
+          this.name = userName;
+          this.age = userAge;
+        }
+
+        getFullName(surname: string): string {
+          return `${this.name} ${surname}`;
+        };
+      }
+
+      const tom = new User(1, 'Tom', 23);
+      console.log(tom.getFullName('Jefferson'));
+
+    })('Интерфейсы классов');
+
+  })('Интерфейсы');
 };
