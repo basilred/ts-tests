@@ -394,5 +394,23 @@ export default function() {
 
     })('Наследование интерфейсов');
 
+
+    // Интерфейсы функций
+    ((sectionName: string) => {
+      console.log(`\n${sectionName}`);
+
+      interface FullNameBuilder {
+        (name: string, surname: string): string;
+      }
+
+      const simpleBuilder: FullNameBuilder = function(name: string, surname: string): string {
+        return `${name} ${surname}`;
+      }
+
+      const fullName = simpleBuilder('Jon', 'Snow');
+      console.log(fullName);
+
+    })('Интерфейсы функций');
+
   })('Интерфейсы');
 };
