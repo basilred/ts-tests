@@ -332,7 +332,7 @@ export default function() {
     })('Определение методов');
 
 
-    // Определение методов
+    // Интерфейсы классов
     ((sectionName: string) => {
       console.log(`\n${sectionName}`);
 
@@ -362,6 +362,37 @@ export default function() {
       console.log(tom.getFullName('Jefferson'));
 
     })('Интерфейсы классов');
+
+
+    // Наследование интерфейсов
+    ((sectionName: string) => {
+      console.log(`\n${sectionName}`);
+
+      interface IMovable {
+        speed: number;
+        move(): void;
+      }
+
+      interface ICar extends IMovable {
+        fill(): void;
+      }
+
+      class Car implements ICar {
+        speed: number;
+        move(): void {
+          console.log(`The car travels at a speed of ${this.speed} km / h.`);
+        }
+        fill(): void {
+          console.log(`Refuel the car`);
+        }
+      }
+
+      const car = new Car();
+      car.speed = 60;
+      car.fill();
+      car.move();
+
+    })('Наследование интерфейсов');
 
   })('Интерфейсы');
 };
