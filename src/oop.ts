@@ -412,5 +412,33 @@ export default function() {
 
     })('Интерфейсы функций');
 
+
+    // Интерфейсы массивов
+    ((sectionName: string) => {
+      console.log(`\n${sectionName}`);
+
+      interface StringArray {
+        [index: number]: string;
+      }
+
+      let phones: StringArray;
+      phones = ['iPhone X', 'Pixel 3XL', 'Nexus 5'];
+
+      let myPhone: string = phones[2];
+      console.log(myPhone);
+
+      // Для индексации можно использовать и тип string
+      interface Dictionary {
+        [index: string]: string;
+      }
+
+      const colors: Dictionary = {};
+      colors.red = '#f00';
+      colors['green'] = '#0f0';
+      colors.blue = '#00f';
+      console.log(colors.green);
+
+    })('Интерфейсы массивов');
+
   })('Интерфейсы');
 };
