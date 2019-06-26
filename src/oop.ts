@@ -477,6 +477,10 @@ export default function() {
   ((sectionName: string) => {
     console.log(`\n${sectionName}`);
 
+    interface IUser {
+      name: string;
+    }
+
     class User {
       constructor(public name: string) {}
     }
@@ -487,7 +491,7 @@ export default function() {
       }
     }
 
-    function getUserName(user: User): string {
+    function getUserName(user: IUser): string {
       return user.name;
     }
 
@@ -524,6 +528,12 @@ export default function() {
 
     // или так
     console.log((bob as Employee).company);
+
+    console.log(getUserName({ name: 'Tom' })); // сработает
+    // console.log(getUserName({ name: "Bob", company:"Microsoft" })); // ошибка
+
+    // но можно сделать приведение типа к интерфейсу
+    console.log(getUserName({ name: 'Bob', company: 'Microsoft' } as IUser));
 
   })('Преобразование типов')
 };
