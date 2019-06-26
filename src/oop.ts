@@ -471,4 +471,37 @@ export default function() {
     })('Гибридные интерфейсы');
 
   })('Интерфейсы');
+
+
+  // Преобразование типов
+  ((sectionName: string) => {
+    console.log(`\n${sectionName}`);
+
+    class User {
+      constructor(public name: string) {}
+    }
+
+    class Employee extends User {
+      constructor(public company: string, public name: string) {
+        super(name);
+      }
+    }
+
+    function getUserName(user: User): string {
+      return user.name;
+    }
+
+    function userFactory(name: string): User {
+      return new Employee('No company', name);
+    }
+
+    const alice: Employee = new Employee('Microsoft', 'Alice');
+    let userName = getUserName(alice);
+    console.log(userName);
+
+    const tom = userFactory('Tom');
+    userName = getUserName(tom);
+    console.log(userName);
+
+  })('Преобразование типов')
 };
