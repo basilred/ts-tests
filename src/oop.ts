@@ -507,11 +507,23 @@ export default function() {
     // console.log(bob.company); // ошибка - в классе User нет свойства company
 
     // Нам надо явно преобразовать объект alice к типу Employee
+
+    console.log('Явное преобразование');
+
     const bobEmployee: Employee = <Employee>bob; // преобразование к типу Employee
     console.log(bobEmployee.company);
 
     // или так
     console.log((<Employee>bob).company);
+
+    // Преобразование с использованием оператора as
+    console.log('Преобразование с использованием оператора as');
+
+    const bobAsEmployee: Employee = bob as Employee; // преобразование к типу Employee
+    console.log(bobAsEmployee.company);
+
+    // или так
+    console.log((bob as Employee).company);
 
   })('Преобразование типов')
 };
