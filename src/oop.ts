@@ -503,5 +503,15 @@ export default function() {
     userName = getUserName(tom);
     console.log(userName);
 
+    const bob: User = new Employee('Microsoft', 'Bob');
+    // console.log(bob.company); // ошибка - в классе User нет свойства company
+
+    // Нам надо явно преобразовать объект alice к типу Employee
+    const bobEmployee: Employee = <Employee>bob; // преобразование к типу Employee
+    console.log(bobEmployee.company);
+
+    // или так
+    console.log((<Employee>bob).company);
+
   })('Преобразование типов')
 };
