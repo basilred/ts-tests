@@ -535,5 +535,13 @@ export default function() {
     // но можно сделать приведение типа к интерфейсу
     console.log(getUserName({ name: 'Bob', company: 'Microsoft' } as IUser));
 
+    // instanceOf
+    const charlie: Employee = new Employee('Apple', 'Charlie');
+    if (charlie instanceof User) {
+      console.log(`${charlie.name} is a User`);
+    } else {
+      console.log(`${charlie} is not a User`);
+    }
+
   })('Преобразование типов')
 };
