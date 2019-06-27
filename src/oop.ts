@@ -543,5 +543,21 @@ export default function() {
       console.log(`${charlie} is not a User`);
     }
 
-  })('Преобразование типов')
+  })('Преобразование типов');
+
+
+  ((sectionName: string) => {
+    console.log(`\n${sectionName}`);
+
+    function getId<T>(id: T): T {
+      return id;
+    }
+
+    const result1 = getId<number>(5);
+    console.log(result1);
+
+    const result2 = getId<string>('abc');
+    console.log(result2);
+
+  })('Обобщения');
 };
