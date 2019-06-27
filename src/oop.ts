@@ -559,5 +559,22 @@ export default function() {
     const result2 = getId<string>('abc');
     console.log(result2);
 
+    // Подобным образом еще можно использовать обобщенные массивы
+    function getString<T>(arg: Array<T>): string {
+      let result = '';
+      for (let i = 0; i < arg.length; i++) {
+        if (i > 0) {
+          result += ",";
+        }
+        result += arg[i].toString();
+      }
+      console.log(result);
+
+      return result;
+    }
+
+    let result = getString<number>( [1, 2, 34, 5]);
+    console.log(result);
+
   })('Обобщения');
 };
