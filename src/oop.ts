@@ -1,3 +1,5 @@
+import mixins from './mixins';
+
 export default function() {
   console.log('\nОбъектно-ориентированное программирование');
 
@@ -670,4 +672,6 @@ export default function() {
     })('Ключевое слово new');
 
   })('Обобщения');
+
+  mixins();
 };
