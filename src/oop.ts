@@ -576,5 +576,29 @@ export default function() {
     let result = getString<number>( [1, 2, 34, 5]);
     console.log(result);
 
+    // Обобщенные классы и интерфейсы
+    ((sectionName: string) => {
+      console.log(`\n${sectionName}`);
+
+      interface IUser<T> {
+        getId(): T;
+      }
+
+      class User<T> implements IUser<T> {
+        constructor(private _id: T) {}
+
+        getId(): T {
+          return this._id;
+        }
+      }
+
+      let tom = new User<number>(3);
+      console.log(tom.getId()); // returns number 3
+
+      const alice = new User<string>('vsf');
+      console.log(alice.getId()); // returns string 'vsf'
+
+    })('Обобщенные классы и интерфейсы');
+
   })('Обобщения');
 };
