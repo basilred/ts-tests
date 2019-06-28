@@ -576,6 +576,7 @@ export default function() {
     let result = getString<number>( [1, 2, 34, 5]);
     console.log(result);
 
+
     // Обобщенные классы и интерфейсы
     ((sectionName: string) => {
       console.log(`\n${sectionName}`);
@@ -599,6 +600,49 @@ export default function() {
       console.log(alice.getId()); // returns string 'vsf'
 
     })('Обобщенные классы и интерфейсы');
+
+
+    // Ограничения обобщений
+    ((sectionName: string) => {
+      console.log(`\n${sectionName}`);
+
+      interface IUser {
+        getInfo();
+      }
+
+      class User implements IUser {
+        constructor(public id: number, public name: string) {}
+
+        getInfo() {
+          console.log(`id: ${this.id}, name: ${this.name}`);
+        }
+      }
+
+      class Employee extends User {
+        constructor(public id: number, public name: string, public company: string) {
+          super(id, name);
+        }
+
+        getInfo() {
+          console.log(`id: ${this.id}, name: ${this.name}, company: ${this.company}`);
+        }
+      }
+
+      class UserInfo<T extends User> {
+        getUserInfo(user: T): void {
+          user.getInfo();
+        }
+      }
+
+      const tom = new User(1, 'Tom');
+      const alice = new Employee(2, 'Alice', 'Micro');
+      const userStore = new UserInfo();
+
+      // userStore.getUserInfo(tom);
+      // userStore.getUserInfo(alice);
+      [tom, alice].forEach(user => userStore.getUserInfo(user));
+
+    })('Ограничения обобщений');
 
   })('Обобщения');
 };
