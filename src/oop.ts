@@ -644,5 +644,30 @@ export default function() {
 
     })('Ограничения обобщений');
 
+
+    // Ключевое слово new
+    ((sectionName: string) => {
+      console.log(`\n${sectionName}`);
+
+      // Так работать не будет,
+      // function userFactory<T>(): T {
+      //   return new T();
+      // }
+
+      // Нужно указать, что обобщённый тип T имеет конструктор
+      function userFactory<T>(type: { new (): T; }): T {
+        return new type();
+      }
+
+      class User {
+        constructor() {
+          console.log('Создан объект User');
+        }
+      }
+
+      const user: User = userFactory(User);
+
+    })('Ключевое слово new');
+
   })('Обобщения');
 };
