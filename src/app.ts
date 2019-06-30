@@ -1,6 +1,7 @@
 import types from './types';
 import funcs from './funcs';
 import oop from './oop';
+import modules from './modules/index';
 
 const el = window.document.getElementById('content');
 
@@ -31,3 +32,5 @@ types();
 funcs();
 
 oop();
+
+modules.namespaces();
