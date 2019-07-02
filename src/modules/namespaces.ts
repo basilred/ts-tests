@@ -14,6 +14,20 @@ namespace Personnel {
   export const defaultUser = { name: 'Kate' };
 }
 
+namespace Data {
+  export namespace Personnel { // вложенное пространство имён
+    export class Employee {
+      constructor(public name: string) {}
+    }
+  }
+
+  export namespace Clients { // вложенное пространство имён
+    export class VipClient {
+      constructor(public name: string) {}
+    }
+  }
+}
+
 export default function() {
   // Пространства имён
   ((sectionName: string) => {
@@ -23,4 +37,15 @@ export default function() {
     console.log(Personnel.work(alice));
 
   })('Пространства имён');
+
+  ((sectionName: string) => {
+    console.log(`\n${sectionName}`);
+
+    const tom = new Data.Personnel.Employee('Tom');
+    console.log(tom.name);
+
+    const sam = new Data.Clients.VipClient('Sam');
+    console.log(sam.name);
+
+  })('Вложенные пространства имён');
 };
