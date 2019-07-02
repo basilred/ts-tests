@@ -28,6 +28,8 @@ namespace Data {
   }
 }
 
+import employee = Data.Personnel.Employee;
+
 export default function() {
   // Пространства имён
   ((sectionName: string) => {
@@ -48,4 +50,12 @@ export default function() {
     console.log(sam.name);
 
   })('Вложенные пространства имён');
+
+  ((sectionName: string) => {
+    console.log(`\n${sectionName}`);
+
+    const bob = new employee('Bob');
+    console.log(bob.name);
+
+  })('Псевдонимы пространств имён');
 };
