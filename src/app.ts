@@ -2,6 +2,7 @@ import types from './types';
 import funcs from './funcs';
 import oop from './oop';
 import modules from './modules/index';
+import headers from './headers/index';
 
 const el = window.document.getElementById('content');
 
@@ -35,3 +36,5 @@ oop();
 
 modules.namespaces();
 // modules.separate();
+
+headers();
