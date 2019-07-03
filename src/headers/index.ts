@@ -4,7 +4,8 @@ export default function() {
 
     class Utility {
       static displayGlobalVar() {
-        console.log(globalVar);
+        // console.log(globalVar);
+        display();
       }
     }
 
