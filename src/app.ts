@@ -3,6 +3,7 @@ import funcs from './funcs';
 import oop from './oop';
 import modules from './modules/index';
 import headers from './headers/index';
+import decorators from './decorators/decorators';
 
 const el = window.document.getElementById('content');
 
@@ -38,3 +39,5 @@ modules.namespaces();
 // modules.separate();
 
 headers();
+
+decorators();
