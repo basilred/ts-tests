@@ -50,5 +50,34 @@ export default function() {
     const tom = new LoggerUser('Tom');
     tom.print();
 
+
+    ((sectionName: string) => {
+      console.log(`\n${sectionName}`);
+
+      function readonly(target: Object, propertyKey: string, descriptor: PropertyDescriptor) {
+        descriptor.writable = false;
+      }
+
+      class User {
+        constructor(public name: string) {}
+
+        @readonly
+        print(): void {
+          console.log(this.name);
+        }
+      }
+
+      const dean = new User('Dean');
+
+      try {
+        dean.print = function() { console.log('Print function has been changed') };
+      } catch(e) {
+        console.log(e.message);
+      }
+      
+      dean.print();
+
+    })('Декораторы методов и их параметров');
+
   })('Декораторы');
 }
