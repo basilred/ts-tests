@@ -153,10 +153,7 @@ export default function() {
       }
 
       class User {
-        private name: string;
-        constructor(name: string) {
-          this.name = name;
-        }
+        constructor(private name: string) {}
 
         @logMethod
         setName(@logParameter name: string) {
@@ -168,9 +165,9 @@ export default function() {
         }
       }
 
-      const tom = new User("Tom");
-      tom.setName("Bob");
-      tom.setName("Sam");
+      const tom = new User('Tom');
+      tom.setName('Bob');
+      tom.setName('Sam');
 
     })('Декораторы параметров методов');
 
