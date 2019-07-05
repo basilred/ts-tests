@@ -74,10 +74,38 @@ export default function() {
       } catch(e) {
         console.log(e.message);
       }
-      
+
       dean.print();
 
     })('Декораторы методов и их параметров');
+
+
+    ((sectionName: string) => {
+      console.log(`\n${sectionName}`);
+      function log(target: Object, method: string, descriptor: PropertyDescriptor) {
+        const originalMethod = descriptor.value;
+
+        descriptor.value = function(...args) {
+          console.log(JSON.stringify(args));
+          const returnValue = originalMethod.apply(this, args);
+          console.log(`${JSON.stringify(args)} => ${returnValue}`);
+
+          return returnValue;
+        }
+      }
+
+      class Calculator {
+        @log
+        add(x: number, y: number): number {
+          return x + y;
+        }
+      }
+
+      const calc = new Calculator();
+      calc.add(2, 3);
+      calc.add(6, 7);
+
+    })('Параметры и выходной результат метода');
 
   })('Декораторы');
 }
