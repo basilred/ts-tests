@@ -1,3 +1,5 @@
+import propMethods from './properties-methotds';
+
 export default function() {
   ((sectionName: string) => {
     console.log(`\n${sectionName}`);
@@ -170,6 +172,8 @@ export default function() {
       tom.setName('Sam');
 
     })('Декораторы параметров методов');
+
+    propMethods();
 
   })('Декораторы');
 }
