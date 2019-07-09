@@ -1,4 +1,5 @@
 import propMethods from './properties-methotds';
+import fabrics from './fabrics';
 
 export default function() {
   ((sectionName: string) => {
@@ -174,6 +175,8 @@ export default function() {
     })('Декораторы параметров методов');
 
     propMethods();
+
+    fabrics();
 
   })('Декораторы');
 }
