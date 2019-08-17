@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
     "target": "es2015",
-    "outDir": "dist",
+    "jsx": "react",
+    "allowJs": true,
+    "outDir": "./dist/",
     "sourceMap": true,
     "experimentalDecorators": true
-  },
-  "include": ["src/**/*"]
+  }
 }
